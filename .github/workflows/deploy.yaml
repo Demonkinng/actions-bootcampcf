@@ -9,7 +9,8 @@ jobs:
   deploy-codigofacilito: # Nombre del job, se puede tener varios jobs en un workflow
     runs-on: ubuntu-latest # Indica donde se va a ejecutar
     steps: # Pasos que se van a ejecutar de forma secuencial
-      run: echo "Hacemos pull del codigo"
-      run: echo "Correr migraciones"
-      run: echo "Generar binario"
-      run: echo "Publicar version"
+      - uses: actions/checkout@v4
+      - run: echo "Hacemos pull del codigo"
+      - run: echo "Correr migraciones"
+      - run: echo "Generar binario"
+      - run: echo "Publicar version"

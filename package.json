@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "jest",
-    "build": "node serc/build.js"
+    "build": "node src/build.js"
   },
   "keywords": [],
   "author": "",

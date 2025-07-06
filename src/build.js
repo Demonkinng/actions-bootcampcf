@@ -1,5 +1,5 @@
 const fs = require('fs');
-const app = require('./app.js');
+const app = require('./app');
 const request = require('supertest');
 
 // Construye la app y genera el HTML (artefacto final)

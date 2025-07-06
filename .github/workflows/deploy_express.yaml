@@ -44,7 +44,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v4
         with:
           path: public/
 
@@ -57,7 +57,7 @@ jobs:
     # if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: build
-    
+
     permissions:
       pages: write # Permiso para escribir en GitHub Pages
       id-token: write

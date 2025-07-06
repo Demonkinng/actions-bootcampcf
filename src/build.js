@@ -1,6 +1,6 @@
-import fs from 'fs';
-import app from './app.js';
-import request from 'supertest'
+const fs = require('fs');
+const app = require('./app.js');
+const request = require('supertest');
 
 // Construye la app y genera el HTML (artefacto final)
 (async () => {

@@ -9,4 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print variable
-        run: echo "${{ secrets.NAME}}"
+        run: echo "${{ vars.NAME}}"
+
+      - name: setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'

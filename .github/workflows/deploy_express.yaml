@@ -32,7 +32,7 @@ jobs:
       - name: setup
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Instalar dependencias
         run: npm install
@@ -43,6 +43,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: public/
+
   deploy:
     # Por defecto si un job falla, los siguientes no se ejecutan
     # Hay 3 metodos para forzar la ejecucion: always, success, failure
@@ -52,7 +57,16 @@ jobs:
     # if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: build
+    
+    permissions:
+      pages: write # Permiso para escribir en GitHub Pages
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment-pages.outputs.page_url}}
 
     steps:
-      - name: deploy
-        run: echo "Deploy..."
+      - name: Deploy to GitHub Pages
+        id: deployment-pages
+        uses: actions/deploy-pages@v4
